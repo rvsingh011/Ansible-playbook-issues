@@ -1,0 +1,19 @@
+- hosts: localhost
+  tasks:
+    - name: Test Kubectl from ansible-job
+      shell:
+        cmd: kubectl --help
+      register: kube_config
+
+    - name: Display the kubeconfig help  information
+      debug:
+        var: kube_config.stdout
+    
+    - name: Test ibmcloud from ansible-job
+      shell:
+        cmd: ibmcloud --help
+      register: ibmcloud_help
+
+    - name: Display the kubeconfig help  information
+      debug:
+        var: ibmcloud_help.stdout
